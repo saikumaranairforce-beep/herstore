@@ -71,7 +71,13 @@ document.getElementById("navContact").innerText=langData[lang].navContact;
 
 }
 
-
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log("Service Worker Registered"))
+      .catch(err => console.log("SW Error", err));
+  });
+}
 
 function showPage(page){
 
